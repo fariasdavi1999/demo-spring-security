@@ -29,9 +29,9 @@ public class SecurityDatabaseConfig implements UserDetailsService {
 			throw new UsernameNotFoundException("User not found");
 		}
 		Set<GrantedAuthority> authorities = new HashSet<>();
-		userEntity.getRoles().forEach(role -> {
-			authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
-		});
+		userEntity.getRoles().forEach(role ->
+			authorities.add(new SimpleGrantedAuthority("ROLE_" + role))
+		);
 		return new org.springframework.security.core.userdetails.User(userEntity.getUsername(),
 		                                                              userEntity.getPassword(),
 		                                                              authorities);

@@ -14,14 +14,15 @@ import java.util.logging.Logger;
 public class OnStartApplication implements CommandLineRunner {
 
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private final BCryptPasswordEncoder passwordEncoder;
 	Logger logger = Logger.getLogger(String.valueOf(OnStartApplication.class));
 
 	@Autowired
 	private final UserService userService;
 
-	public OnStartApplication(UserService userService) {
-		this.userService = userService;
+	public OnStartApplication(BCryptPasswordEncoder passwordEncoder, UserService userService) {
+		this.passwordEncoder = passwordEncoder;
+		this.userService     = userService;
 	}
 
 	@Transactional
