@@ -12,7 +12,10 @@ import java.util.logging.Logger;
 
 @Component
 public class OnStartApplication implements CommandLineRunner {
-
+	/*
+		OnStartApplication
+		This class is responsible for initializing the application data, such as creating admin and user users.
+	 */
 	@Autowired
 	private final BCryptPasswordEncoder passwordEncoder;
 	Logger logger = Logger.getLogger(String.valueOf(OnStartApplication.class));
